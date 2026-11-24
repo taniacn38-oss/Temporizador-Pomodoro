@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temporizador Pomodoro</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="contenedor-pomodoro" aria-labelledby="titulo-app">
+      <header class="encabezado-app">
+        <h1 id="titulo-app">Temporizador Pomodoro</h1>
+        <p class="subtitulo">
+          Organiza tu enfoque y descansos con intervalos configurables
+        </p>
+      </header>
+
+      <!-- Selector de modo y contador de sesiones -->
+      <section class="barra-superior" aria-label="Modo de sesión y progreso">
+        <div class="selector-modos" role="tablist" aria-label="Tipos de sesión">
+          <button
+            type="button"
+            id="modo-trabajo"
+            class="boton-modo activo"
+            role="tab"
+            aria-selected="true"
+            data-modo="trabajo"
+          >
+            Trabajo
+          </button>
+          <button
+            type="button"
+            id="modo-corto"
+            class="boton-modo"
+            role="tab"
+            aria-selected="false"
+            data-modo="corto"
+          >
+            Descanso corto
+          </button>
+          <button
+            type="button"
+            id="modo-largo"
+            class="boton-modo"
+            role="tab"
+            aria-selected="false"
+            data-modo="largo"
+          >
+            Descanso largo
+          </button>
+        </div>
+
+        <div class="contador-sesiones" aria-live="polite">
+          <span>Sesiones completadas:</span>
+          <strong id="sesiones-completadas">0</strong>
+        </div>
+      </section>
+
+      <!-- Pantalla del temporizador -->
+      <section class="panel-reloj" aria-label="Temporizador actual">
+        <p
+          id="etiqueta-sesion-actual"
+          class="etiqueta-sesion"
+          aria-live="polite"
+        >
+          Sesión actual: Trabajo
+        </p>
+
+        <div
+          id="pantalla-tiempo"
+          class="pantalla-tiempo"
+          role="timer"
+          aria-live="off"
+          aria-label="Tiempo restante"
+        >
+          25:00
+        </div>
+
+        <p id="estado-aviso" class="estado-aviso" aria-live="polite"></p>
+
+        <div class="controles-reloj">
+          <button
+            type="button"
+            id="boton-iniciar-pausar"
+            class="boton-principal"
+          >
+            Iniciar
+          </button>
+          <button type="button" id="boton-reiniciar" class="boton-secundario">
+            Reiniciar
+          </button>
+          <button
+            type="button"
+            id="boton-probar-sonido"
+            class="boton-secundario"
+          >
+            Probar sonido
+          </button>
+        </div>
+      </section>
+
+      <!-- Configuración de duraciones (25 / 5 / 15 por defecto) -->
+      <section class="panel-configuracion" aria-labelledby="titulo-config">
+        <h2 id="titulo-config">Configuración de tiempos (minutos)</h2>
+        <form id="formulario-config" class="formulario-config">
+          <div class="campo-config">
+            <label for="duracion-trabajo">Trabajo</label>
+            <input
+              type="number"
+              id="duracion-trabajo"
+              min="1"
+              max="120"
+              value="25"
+              required
+            />
+          </div>
+
+          <div class="campo-config">
+            <label for="duracion-corto">Descanso corto</label>
+            <input
+              type="number"
+              id="duracion-corto"
+              min="1"
+              max="60"
+              value="5"
+              required
+            />
+          </div>
+
+          <div class="campo-config">
+            <label for="duracion-largo">Descanso largo (cada 4 sesiones)</label>
+            <input
+              type="number"
+              id="duracion-largo"
+              min="1"
+              max="90"
+              value="15"
+              required
+            />
+          </div>
+
+          <button type="submit" id="boton-guardar-config" class="boton-guardar">
+            Aplicar tiempos
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

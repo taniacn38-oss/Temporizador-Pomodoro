@@ -1,0 +1,293 @@
+/* Paleta de verdes pastel oscuros */
+:root {
+  --fondo-pagina: #1b2a22;
+  --superficie-tarjeta: #24382d;
+  --superficie-elevada: #2e4739;
+  --borde-suave: #456854;
+  --texto-principal: #e6f0ea;
+  --texto-secundario: #a8c2b3;
+  --acento-principal: #6ba384;
+  --acento-hover: #588d70;
+  --acento-suave: #3b5c49;
+  --texto-sobre-acento: #121e17;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--fondo-pagina);
+  color: var(--texto-principal);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Indicador visible al navegar con teclado (Tab / Enter / Espacio) */
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #9ad1b2;
+  outline-offset: 2px;
+}
+
+.contenedor-pomodoro {
+  width: 100%;
+  max-width: 680px;
+  background-color: var(--superficie-tarjeta);
+  border: 1px solid var(--borde-suave);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 14px 32px rgba(9, 17, 13, 0.45);
+}
+
+.encabezado-app {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.encabezado-app h1 {
+  font-size: 1.9rem;
+  color: var(--texto-principal);
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  color: var(--texto-secundario);
+  font-size: 0.96rem;
+}
+
+/* Barra de modos y contador */
+.barra-superior {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--superficie-elevada);
+  border: 1px solid var(--borde-suave);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 22px;
+}
+
+.selector-modos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.boton-modo {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: var(--texto-secundario);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.boton-modo:hover {
+  background-color: var(--acento-suave);
+  color: var(--texto-principal);
+}
+
+.boton-modo.activo {
+  background-color: var(--acento-principal);
+  color: var(--texto-sobre-acento);
+}
+
+.contador-sesiones {
+  font-size: 0.92rem;
+  color: var(--texto-secundario);
+  padding: 6px 12px;
+  background-color: var(--fondo-pagina);
+  border-radius: 8px;
+  border: 1px solid var(--borde-suave);
+}
+
+.contador-sesiones strong {
+  color: #9ad1b2;
+  font-size: 1.05rem;
+}
+
+/* Panel del reloj */
+.panel-reloj {
+  text-align: center;
+  background-color: var(--superficie-elevada);
+  border: 1px solid var(--borde-suave);
+  border-radius: 16px;
+  padding: 28px 20px;
+  margin-bottom: 22px;
+}
+
+.etiqueta-sesion {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #9ad1b2;
+  margin-bottom: 10px;
+}
+
+.pantalla-tiempo {
+  font-size: clamp(3.5rem, 11vw, 5.2rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--texto-principal);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 8px;
+}
+
+.estado-aviso {
+  min-height: 22px;
+  font-size: 0.9rem;
+  color: var(--texto-secundario);
+  margin-bottom: 18px;
+}
+
+.controles-reloj {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.boton-principal,
+.boton-secundario,
+.boton-guardar {
+  padding: 11px 20px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.boton-principal {
+  background-color: var(--acento-principal);
+  color: var(--texto-sobre-acento);
+  border: none;
+  min-width: 130px;
+}
+
+.boton-principal:hover {
+  background-color: var(--acento-hover);
+}
+
+.boton-secundario {
+  background-color: var(--superficie-tarjeta);
+  color: var(--texto-principal);
+  border: 1px solid var(--borde-suave);
+}
+
+.boton-secundario:hover {
+  background-color: var(--acento-suave);
+}
+
+.boton-principal:active,
+.boton-secundario:active,
+.boton-guardar:active {
+  transform: scale(0.98);
+}
+
+/* Panel de configuración */
+.panel-configuracion {
+  background-color: var(--superficie-elevada);
+  border: 1px solid var(--borde-suave);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.panel-configuracion h2 {
+  font-size: 1.05rem;
+  color: var(--texto-principal);
+  margin-bottom: 14px;
+}
+
+.formulario-config {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  align-items: end;
+}
+
+.campo-config {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-config label {
+  font-size: 0.85rem;
+  color: var(--texto-secundario);
+}
+
+.campo-config input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--borde-suave);
+  background-color: var(--fondo-pagina);
+  color: var(--texto-principal);
+  font-size: 0.95rem;
+}
+
+.boton-guardar {
+  grid-column: 1 / -1;
+  background-color: var(--acento-suave);
+  color: var(--texto-principal);
+  border: 1px solid var(--borde-suave);
+  margin-top: 4px;
+}
+
+.boton-guardar:hover {
+  background-color: var(--acento-principal);
+  color: var(--texto-sobre-acento);
+}
+
+/* Diseño responsivo para móviles */
+@media (max-width: 600px) {
+  .contenedor-pomodoro {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .encabezado-app h1 {
+    font-size: 1.5rem;
+  }
+
+  .barra-superior {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .selector-modos {
+    justify-content: center;
+  }
+
+  .contador-sesiones {
+    text-align: center;
+  }
+
+  .formulario-config {
+    grid-template-columns: 1fr;
+  }
+
+  .controles-reloj {
+    flex-direction: column;
+  }
+
+  .boton-principal,
+  .boton-secundario {
+    width: 100%;
+  }
+}
